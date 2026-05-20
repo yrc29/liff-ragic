@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+<body>
+  <script>
+    liff.init({ liffId:2010149084-HwGjRKzM }).then(() => {
+      if (!liff.isLoggedIn()) {
+        liff.login();
+        return;
+      }
+      liff.getProfile().then(profile => {
+        const uid = profile.userId;
+        const formUrl = `https://ap16.ragic.com/WTS02/receive-goods/5?ragic-web-embed=true&webaction=form&ver=new&version=2&pfv1002184=${uid}`;
+        window.location.href = formUrl;
+      });
+    });
+  </script>
+</body>
+</html>
